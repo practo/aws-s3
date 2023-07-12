@@ -33,7 +33,7 @@ module AWS
     UNSAFE_URI = /[^-_.!~*'()a-zA-Z\d;\/?:@&=$,\[\]]/n
 
     def self.escape_uri(path)
-      CGI.escape(path.to_s)
+      URI.escape(path.to_s, UNSAFE_URI)
     end
 
     def self.escape_uri_component(path)
